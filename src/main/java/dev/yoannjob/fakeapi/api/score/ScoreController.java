@@ -1,7 +1,9 @@
 package dev.yoannjob.fakeapi.api.score;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +32,15 @@ public class ScoreController {
     this.scoreRepository = scoreRepository;
     log.info("scoreController initialized");
   }
+
+	
+	@GetMapping("/ping")
+	@CrossOrigin
+	public Map<String, String> ping() {
+		HashMap<String, String> pong = new HashMap<>();
+		pong.put("message", "pong");
+		return pong;
+	}
 
 	@GetMapping("/scores")
 	@CrossOrigin

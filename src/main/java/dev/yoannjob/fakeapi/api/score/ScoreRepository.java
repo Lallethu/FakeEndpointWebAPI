@@ -21,6 +21,11 @@ public class ScoreRepository {
     log.info("ScoreRepository initialized");
   }
 
+	// create a pong response returning a json object with a message property
+	public Object pong() {
+		return "{\"message\": \"pong\"}";
+	}
+
 	public List<Score> findAll() {
 		return jdbcClient.sql("SELECT * FROM scores ORDER BY id DESC LIMIT 3")
 			.query(Score.class)
